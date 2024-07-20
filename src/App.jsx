@@ -66,13 +66,15 @@ function App() {
   function dark(){
     setTheme("dark")
   }
+
+  
   return (
     <div className={theme}>
-        {teacherData.map((oneTeacher)=>{
+        {/* {teacherData.map((oneTeacher)=>{
         return(
           <Students key={uuidv4()} name={oneTeacher.name} city={oneTeacher.city}></Students>
         )
-      })}
+      })} */}
       
 {/* 
       {myNames.map((oneName)=>{

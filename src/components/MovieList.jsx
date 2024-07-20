@@ -32,20 +32,52 @@ function MovieList() {
     
     }
 
-  return (
-    <div>
-        <button onClick={()=>{sortMovies()}}>sort movies</button>
-        {movies.map((oneMovie)=>{
-            return(
-                <div style={{border:"solid red",margin:"0 0 5px 0"}} key={oneMovie._id}>
-                    <h2>{oneMovie.title}</h2>
-                    <h3>{oneMovie.director}</h3>
-                    <button onClick={()=>{deleteMovie(oneMovie._id)}}>Delete {oneMovie.title}</button>
-                </div>
-            )
-        })}
-    </div>
-  )
+    const isUserLoggedIn = true
+    const mikkoUnderstands = true
+    if(isUserLoggedIn===true){
+        return (
+
+            <div>
+
+
+                {/* short circuit */}
+                {mikkoUnderstands===false && <p>in && conditional render</p>}
+                {mikkoUnderstands===false || <p>in || conditional render</p>}
+
+
+                {/* ternary operator
+                  
+                    condition ? true condition : false condition
+                */}
+
+         
+                {mikkoUnderstands===true ? (
+                    <div>
+                    <p>Yay mikko understands the concept</p>
+                    <a href="">google</a>
+                    </div>
+                    ):<p>sad face mikko doesnt understand</p>}
+                <button onClick={()=>{sortMovies()}}>sort movies</button>
+                {movies.map((oneMovie)=>{
+                    return(
+                        <div style={{border:"solid red",margin:"0 0 5px 0"}} key={oneMovie._id}>
+                            <h2>{oneMovie.title}</h2>
+                            <h3>{oneMovie.director}</h3>
+                            <button onClick={()=>{deleteMovie(oneMovie._id)}}>Delete {oneMovie.title}</button>
+                        </div>
+                    )
+                })}
+            </div>
+          )
+        
+    }
+    else{
+        return(
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
 }
 
 export default MovieList
